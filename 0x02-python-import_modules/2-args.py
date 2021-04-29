@@ -3,9 +3,9 @@ if __name__ == "__main__":
     from sys import argv
     userin = argv[1:]
     size = len(userin)
-    if size is 0:
-        print("{} arguments.".format(size))
-    else:
-        print("{} arguments:".format(size))
-        for i in range(1,size+1):
-            print("{:d}: {:s}".format(i,argv[i]))
+    print("{:d} {:s}{:s}".
+          format(size,
+                 "arguments" if (size) is not 1 else "argument",
+                 "." if (size) is 0 else ":"))
+    for idx, arg in enumerate(userin):
+        print("{:d}: {:s}".format(idx + 1, arg))
