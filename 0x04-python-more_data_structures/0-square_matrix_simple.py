@@ -3,4 +3,4 @@ def square_matrix_simple(matrix=[]):
     if matrix is None:
         return None
     else:
-        return[[elem**2 in row] for row in matrix]
+        return (list(map(lambda x: x**2, list)) for list in matrix)
