@@ -33,12 +33,11 @@ class Square:
         """
         self.size = size
         self.position = position
-    
+
     @property
     def size(self):
         """
         Getter
-        
         Return: size
         """
         return self.__size
@@ -47,9 +46,8 @@ class Square:
     def size(self, value):
         """
         Setter
-        
         Args:
-            value: size is set to value when value is an int and positive or qual to 0
+            value: size is set to value when value is an int
         """
         if type(value) is not int:
             raise TypeError("size must be an integer")
@@ -57,12 +55,11 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-            
+
     @property
     def position(self):
         """
         Getter
-        
         Return: position
         """
         return self.__position
@@ -75,11 +72,13 @@ class Square:
         Args:
             value: sets the position to the tuple in value
         """
-        if type(value) is not tuple or type(value[0]) is not int or type(value[1]) is not int or len(value) != 2 or value[0] < 0 or value[1] < 0:
+        if type(value) is not tuple or len(value) != 2 or \
+           type(value[0]) is not int or type(value[1]) is not int or \
+           value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
-        
+
     def area(self):
         """
         Calculates are of a square
@@ -94,7 +93,9 @@ class Square:
             print("")
         else:
             print("\n" * self.__position[1], end="")
-            print("\n".join([" " * self.__position[0] + "#" * self.__size for rows in range(self.__size)]))
+            print("\n".join([" " * self.__position[0] +
+                             "#" * self.__size
+                             for rows in range(self.__size)]))
 
     def __str__(self):
         """
@@ -103,7 +104,9 @@ class Square:
         string = ""
         if self.__size == 0:
             return string
-        
+
         string += "\n" * self.position[1]
-        string += "\n".join([" " * self.position[0] + "#" * self.__size for rows in range(self.__size)])
+        string += "\n".join([" " * self.__position[0] +
+                             "#" * self.__size
+                             for rows in range(self.__size)])
         return string
