@@ -10,7 +10,7 @@ class Square:
     class Square definition
     
     Args:
-        size: size of side of square, default size is 0
+    size: size of side of square, default size is 0
     """
 
     def __init__(self, size=0):
@@ -18,7 +18,7 @@ class Square:
         Initilization of square
         
         Attributes:
-            size: size of side of square, default value is 0
+        size: size of side of square, default value is 0
         """
         if type(size) is not int:
             raise TypeError("size must be an integer")
