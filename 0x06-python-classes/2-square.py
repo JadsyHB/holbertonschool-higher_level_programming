@@ -7,8 +7,7 @@ Defines class square with optional instantiation
 
 class Square:
     """
-    class Square definition
-    
+    class Square definition    
     Args:
     size: size of side of square, default size is 0
     """
@@ -16,7 +15,6 @@ class Square:
     def __init__(self, size=0):
         """
         Initilization of square
-        
         Attributes:
         size: size of side of square, default value is 0
         """
