@@ -10,18 +10,18 @@ class Square:
     class Square definition
 
     Args:
-        size: size of side of square, default size is 0
-
+    size: size of side of square, default size is 0
+    
     Functions:
-        __init__self, size)
-        area(self)
+    __init__self, size)
+    area(self)
     """
     def __init__(self, size=0):
         """
         Initilization of square
-
+        
         Attributes:
-            size: size of side of square, default value is 0
+        size: size of side of square, default value is 0
         """
         if size < 0:
             raise ValueError("size must be >= 0")
