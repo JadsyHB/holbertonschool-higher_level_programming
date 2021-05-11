@@ -12,6 +12,7 @@ class Square:
     Args:
         size: size of side of square, default size is 0
     """
+
     def __init__(self, size=0):
         """
         Initilization of square
