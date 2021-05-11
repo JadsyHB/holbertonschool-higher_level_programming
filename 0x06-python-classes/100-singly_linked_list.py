@@ -47,7 +47,7 @@ class Node:
             value: sets the data to the value given
         """
         if type(value) is not int:
-            raise("data must be an integer")
+            raise TypeError("data must be an integer")
         else:
             self.__data = value
 
