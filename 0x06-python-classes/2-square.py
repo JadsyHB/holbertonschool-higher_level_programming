@@ -4,6 +4,7 @@ Module 2-square
 Defines class square with optional instantiation
 """
 
+
 class Square:
     """
     class Square definition
