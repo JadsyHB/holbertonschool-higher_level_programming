@@ -11,7 +11,7 @@ class Square:
 
     Args:
         size: size of side of square, default size is 0
-    
+
     Functions:
         __init__self, size)
         area(self)
@@ -33,7 +33,7 @@ class Square:
     def area(self):
         """
         Calculates are of a square
-        
+    
         Returns:
             area
         """
