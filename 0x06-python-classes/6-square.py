@@ -32,8 +32,8 @@ class Square:
             position: position with default 0, 0
         """
         self.size = size
-        self.position = position
-    
+        self.position = position if len(position == 2)
+
     @property
     def size(self):
         """
