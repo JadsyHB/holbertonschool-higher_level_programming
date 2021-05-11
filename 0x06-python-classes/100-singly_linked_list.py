@@ -99,11 +99,11 @@ class SinglyLinkedList:
         print singly linked list each number on line
         """
         string = ""
-        current = self.__head
-        while current is not None:
-            string += str(current.data)
-            current = current.next_node
-            if current is not None:
+        cur = self.__head
+        while cur is not None:
+            string += str(cur.data)
+            cur = cur.next_node
+            if cur is not None:
                 string += "\n"
         return string
 
@@ -119,16 +119,15 @@ class SinglyLinkedList:
             self.__head = new
             return
 
-        current = self.__head
-        if new.data < current.data:
+        cur = self.__head
+        if new.data < cur.data:
             new.next_node = self.__head
             self.__head = new
             return
 
-        while (current.next_node is not None)  \ 
-and (new.data > current.next_node.data):
-            current = current.next_node
+        while (cur.next_node is not None) and (new.data > cur.next_node.data):
+            cur = cur.next_node
 
-        new.next_node = current.next_node
-        current.next_node = new
+        new.next_node = cur.next_node
+        cur.next_node = new
         return
