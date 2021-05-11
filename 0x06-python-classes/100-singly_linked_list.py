@@ -8,7 +8,6 @@ Node class and SinglyLinkedList class
 class Node:
     """
     class Node definition
-    
     Args:
         data
         next_node
@@ -24,7 +23,6 @@ class Node:
     def __init__(self, data, next_node=None):
         """
         initializes linked list
-        
         Attributes:
             data
             next_node
@@ -36,7 +34,6 @@ class Node:
     def data(self):
         """
         Getter
-        
         Returns: data
         """
         return self.__data
@@ -76,6 +73,7 @@ class Node:
         else:
             self.__next_node = value
 
+
 class SinglyLinkedList:
     """
     class SinglyLinkedList definition
@@ -95,7 +93,7 @@ class SinglyLinkedList:
             head: private
         """
         self.__head = None
-    
+
     def __str__(self):
         """
         print singly linked list each number on line
@@ -121,14 +119,14 @@ class SinglyLinkedList:
             self.__head = new
             return
 
-
         current = self.__head
         if new.data < current.data:
             new.next_node = self.__head
             self.__head = new
             return
-        
-        while (current.next_node is not None) and (new.data > current.next_node.data):
+
+        while (current.next_node is not None)  \ 
+and (new.data > current.next_node.data):
             current = current.next_node
 
         new.next_node = current.next_node
