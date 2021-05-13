@@ -1,0 +1,40 @@
+Import module to test
+
+     >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+SUCCESSFUL TESTS:
+
+    >>> text_indentation("Lorem ipsum. Fortrass litteram? videor an: totas")
+    Lorem ipsum.
+    <BLANKLINE>
+    Fortrass litteram?
+    <BLANKLINE>
+    videor an:
+    <BLANKLINE>
+    totas
+
+test to print without spaces at the the start:
+
+    >>> text_indentation("   hello.      nice?")
+    hello.
+    <BLANKLINE>
+    nice?
+    <BLANKLINE>
+
+    >>> text_indentation("      holberton       ")
+    holberton
+
+UNSUCCESFUL TEST:
+
+
+Test with other data types:
+
+     >>> text_indentation(1)
+     Traceback (most recent call last):
+     ...
+     TypeError: text must be a string
+
+     >>> text_indentation([1, 2])
+     Traceback (most recent call last):
+     ...
+     TypeError: text must be a string

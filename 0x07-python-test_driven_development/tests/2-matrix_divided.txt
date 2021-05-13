@@ -1,0 +1,90 @@
+Importing method to test:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+SUCCESFUL TESTS:
+
+Testing with sign and unsigned, ints and floats, same size
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+    >>> matrix = [[2, 8.8, 10], [-2, -6, -10]]
+    >>> print(matrix_divided(matrix, 2))
+    [[1.0, 4.4, 5.0], [-1.0, -3.0, -5.0]]
+
+UNSUCCESSFUL TESTS:
+
+Testing with empty list:
+
+    >>> matrix = []
+    >>> print(matrix_divided(matrix, 1))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> matrix = [[], []]
+    >>> print(matrix_divided(matrix, 1))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test with different sized matrix:
+
+    >>> matrix = [[1, 2], [2, 3, 4]]
+    >>> print(matrix_divided(matrix, 1))
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+Test with matrix containing other data types:
+
+    >>> matrix = [["hello"], ["holberton"]]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> matrix = [(1, 2), [1, 2]]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> matrix = {1, 2, 3}
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test with div being another data type:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix, "hello"))
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix, [1]))
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Test with div being 0:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+     >>> print(matrix_divided(matrix, 2, True))
+     Traceback (most recent call last):
+     ...
+     TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+Test with more than 2 arguments:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> print(matrix_divided(matrix))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'

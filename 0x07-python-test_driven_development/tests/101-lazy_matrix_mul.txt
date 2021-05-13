@@ -1,0 +1,21 @@
+Import module for testing:
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+SUCCESSFUL CASES:
+
+Test with matrix of floats and ints signed and unsigned:
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 7 10]
+     [15 22]]
+
+    >>> m_a = [[1.5, 2.0], [2.0, 1.5]]
+    >>> m_b = [[4.0, 3.0], [2.0, 1.0]]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[10.   6.5]
+     [11.   7.5]]
+
+UNSUCCESSFUL CASES:

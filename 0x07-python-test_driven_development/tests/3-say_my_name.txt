@@ -1,0 +1,44 @@
+Importing module for test:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+SUCCESFUL CASES:
+
+Test with 2 strings:
+
+     >>> say_my_name("John", "Smith")
+     My name is John Smith
+     >>> say_my_name("Walter", "White")
+     My name is Walter White
+
+Test with default second argument:
+
+     >>> say_my_name("Bob")
+     My name is Bob 
+
+UNSUCCESSFUL CASES:
+
+Test with other data types:
+
+     >>> say_my_name(123, "Smith")
+     Traceback (most recent call last):
+     ...
+     TypeError: first_name must be a string
+     >>> say_my_name("John", [1])
+     Traceback (most recent call last):
+     ...
+     TypeError: last_name must be a string
+
+Test with more than 2 arguments:
+
+     >>> say_my_name("John", "Smith", "extra")
+     Traceback (most recent call last):
+     ...
+     TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+Test with more than no arguments:
+
+     >>> say_my_name()
+     Traceback (most recent call last):
+     ...
+     TypeError: say_my_name() missing 1 required positional argument: 'first_name'
