@@ -36,7 +36,7 @@ def matrix_mul(m_a, m_b):
             if not isinstance(elem, (int, float)):
                 raise TypeError("m_b should contain only integers or floats")
 
-    new_matrix = [[0 for i in range(len(m_b))] for j in range(len(m_a))]
+    new_matrix = [[0 for i in range(len(m_b[0]))] for j in range(len(m_a))]
     for i in range(len(m_a)):
         for j in range(len(m_b[0])):
             for k in range(len(m_b)):
