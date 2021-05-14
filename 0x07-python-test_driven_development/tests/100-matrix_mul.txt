@@ -100,3 +100,28 @@ Test with 2 missing args:
      Traceback (most recent call last):
      ...
      TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Test with different data tyoes extra:
+
+     >>> m_a = [1, 2, 3, 4]
+     >>> m_b = [["hello", "e"], ["holberton", "school"]]
+     >>> print(matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     TypeError: m_b should contain only integers or floats
+
+Test must be a list of list:
+
+     >>> m_a = [1, 2, 3, 4]
+     >>> m_b = [[1, 2], [1, 2]]
+     >>> print(matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     TypeError: m_a must be a list of lists
+
+     >>> m_b = [1, 2, 3, 4]
+     >>> m_a = [[1, 2], [1, 2]]
+     >>> print(matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     TypeError: m_b must be a list of lists
