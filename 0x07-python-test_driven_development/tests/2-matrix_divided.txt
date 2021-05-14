@@ -88,3 +88,17 @@ Test with more than 2 arguments:
     Traceback (most recent call last):
     ...
     TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Test with div being inf:
+
+     >>> matrix = [[1, 2, 3], [4, 5, 6]]
+     >>> print(matrix_divided(matrix, float("inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+
+     >>> matrix = [[1, 2, 3], [4, 5, 6]]
+     >>> print(matrix_divided(matrix, float("-inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
