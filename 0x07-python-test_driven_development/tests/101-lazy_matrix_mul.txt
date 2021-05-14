@@ -81,7 +81,7 @@ UNSUCCESSFUL CASES:
     >>> print(lazy_matrix_mul(m_a, m_b))
     Traceback (most recent call last):
     ...
-    ValueError: ma and mb can’t be multiplied
+    ValueError: m_a and m_b can’t be multiplied
 
     >>> m_a = [[1, 2], [3, 4]]
     >>> print(lazy_matrix_mul(m_a))
