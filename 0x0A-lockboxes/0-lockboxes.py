@@ -11,6 +11,8 @@ def canUnlockAll(boxes):
     lista = [i for i in range(1, len(boxes))]
     indexes = boxes[0]
     for i in indexes:
+        if not isinstance(i, list):
+            return False
         for j in boxes[i]:
             if j not in indexes:
                 indexes += [j]
