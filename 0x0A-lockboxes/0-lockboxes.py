@@ -6,6 +6,8 @@ def canUnlockAll(boxes):
     """
     Returns true if boxes can be unlocked
     """
+    if not isinstance(boxes, list):
+        return False
     lista = [i for i in range(1, len(boxes))]
     indexes = boxes[0]
     for i in indexes:
