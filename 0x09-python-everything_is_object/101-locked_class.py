@@ -7,7 +7,7 @@ can only create first_name instance
 
 class LockedClass:
     """
-    prevent user from making any other attributes 
+    prevent user from making any other attributes
     other than first_name
     """
     __slots__ = "first_name"
