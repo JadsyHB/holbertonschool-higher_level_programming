@@ -4,4 +4,33 @@ Import module for testing
 
 SUCCESSFULL TESTS
 
-    >>> 
+    >>> lista = MyList()
+    >>> lista.append(7)
+    >>> lista.append(1)
+    >>> lista.append(9)
+    >>> print(lista)
+    [7, 1, 9]
+    >>> lista.print_sorted()
+    [1, 7, 9]
+
+    >>> lista = MyList()
+    >>> lista.append(-1)
+    >>> lista.append(0)
+    >>> lista.append(-3)
+    >>> print(lista)
+    [-1, 0, -3]
+    >>> lista.print_sorted()
+    [-3, -1, 0]
+
+    >>> lista = MyList()
+    >>> lista.append(7)
+    >>> print(lista)
+    [7]
+    >>> lista.print_sorted()
+    [7]
+
+    >>> lista = MyList()
+    >>> print(lista)
+    []
+    >>> lista.print_sorted()
+    []
