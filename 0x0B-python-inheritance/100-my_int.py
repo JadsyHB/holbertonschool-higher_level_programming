@@ -18,10 +18,10 @@ class MyInt(int):
         """
         returns not equal
         """
-        return self.number != other.number
+        return self.number != other
 
     def __ne__(self, other):
         """
         returns equal
         """
-        return self.number == other.number
+        return self.number == other
