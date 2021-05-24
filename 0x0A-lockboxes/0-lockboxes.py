@@ -13,5 +13,5 @@ def canUnlockAll(boxes):
             if check:
                 break
         if check is False:
-            return False
+            return check
     return True
