@@ -8,5 +8,9 @@ from sys import argv
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
-file = load_from_json_file("add_item.json")
+try:
+    file = load_from_json_file("add_item.json")
+except FileNotFoundError:
+    file = []
+
 save_to_json_file(file + argv[1:], "add_item.json")
