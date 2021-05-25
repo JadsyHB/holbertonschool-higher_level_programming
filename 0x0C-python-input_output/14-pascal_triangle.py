@@ -12,7 +12,7 @@ def pascal_triangle(n):
     if n <= 0:
         return pascal
     else:
-        for row in range(n+1):
+        for row in range(n):
             subset = [1]
             for column in range(1, row):
                 subset.append(pascal[row-1][column-1] + pascal[row-1][column])
