@@ -4,7 +4,7 @@ create object from JSON file
 """
 
 
-def save_to_json_file(my_obj, filename):
+def load_from_json_file(my_obj, filename):
     """
     create object from json file
     """
