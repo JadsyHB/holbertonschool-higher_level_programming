@@ -23,8 +23,11 @@ class Student:
         """
         class to json
         """
-        dic = {}
-        for elem in attrs:
-            if elem in self.__dict__.keys():
-                dic[elem] = self.__dic__[elem]
-        return dic
+        if attrs is None:
+            return self.__dict__
+        else:
+            dic = {}
+            for elem in attrs:
+                if elem in self.__dict__.keys():
+                    dic[elem] = self.__dic__[elem]
+            return dic
