@@ -7,7 +7,7 @@ my list module
 class MyList(list):
     """
     inherited from list instance
-    print sorted 
+    print sorted
     """
     def print_sorted(self):
         """
