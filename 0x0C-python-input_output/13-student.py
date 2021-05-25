@@ -36,5 +36,5 @@ class Student:
         """
         replaces attributes of Student from json
         """
-        for key,value in json.items():
+        for key, value in json.items():
             setattr(self, key, value)
