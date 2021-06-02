@@ -10,7 +10,7 @@ def minOperations(n):
     """
     if n <= 1:
         return 0
-    elif n % 3 != 0 and n % 2 !=0:
+    elif n % 3 != 0 and n % 2 != 0:
         return n
     elif n % 3 == 0:
         return 3 + minOperations(n / 3)
@@ -18,5 +18,3 @@ def minOperations(n):
         return 2 + minOperations(n / 2)
     else:
         return 0
-
-print(minOperations(13))
