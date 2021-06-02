@@ -8,8 +8,6 @@ def minOperations(n):
     """
     return the fewest amount of operations needed
     """
-    if type(n) is not int:
-        return 0
     if n <= 1:
         return 0
     elif n % 3 != 0 and n % 2 !=0:
@@ -20,3 +18,5 @@ def minOperations(n):
         return 2 + minOperations(n / 2)
     else:
         return 0
+
+print(minOperations(13))
