@@ -128,3 +128,63 @@ class testBase(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square(1, 1, 1, 1, 1, 1, 1)
             Square()
+
+    def test_create(self):
+        """
+        testing create
+        """
+        rr1 = Square.create(**{ 'id': 89 })
+        self.assertEqual(str(rr1),"[Square] (89) 0/0 - 1")
+        rr2 = Square.create(**{ 'id': 89, 'size': 1 })
+        self.assertEqual(str(rr2),"[Square] (89) 0/0 - 1")
+        rr3 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+        self.assertEqual(str(rr3),"[Square] (89) 2/0 - 1")
+        rr4 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
+        self.assertEqual(str(rr4),"[Square] (89) 2/3 - 1")
+
+     def test_save_empty(self):
+        """
+        test with empty
+        """
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_save_empty(self):
+        """
+        test with empty
+        """
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_save_empty(self):
+        """
+        test with empty
+        """
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_save(self):
+        """
+        test save
+        """
+        Square.save_to_file([Square(1)])
+        with open("Square.json", "r") as file:
+            self.assertTrue('[{"y": 0, "x": 0, "id": 1, "size": 7}]', file.read())
+
+    def test_load_from_file(self):
+        """
+        test load
+        """
+        ss1 = Square(1, 1, 1, 1)
+        ss2 = Square(2, 2, 2, 2)
+        list_squares_input = [ss1, ss2]
+        Square.save_to_file(list_squares_input)
+        list_squares_output = Square.load_from_file()
+        for k, v in enumerate(list_squares_output):
+            if k == 0:
+                self.assertEqual(str(v), '[Square] (1) 1/1 - 1')
+            if k == 1:
+                self.assertEqual(str(v), '[Square] (2) 2/2 - 2')
