@@ -83,14 +83,14 @@ class testBase(unittest.TestCase):
         s4 = Square(4, 2, 1, 12)
         self.assertEqual(str(s4), "[Square] (12) 2/1 - 4")
         s5 = Square(5)
-        self.assertEqual(str(s5), "[Square] (24) 0/0 - 5")
+        self.assertEqual(str(s5), "[Square] (28) 0/0 - 5")
 
     def test_update_args(self):
         """
         testing update
         """
         s1 = Square(5)
-        self.assertEqual(str(s1), "[Square] (26) 0/0 - 5")
+        self.assertEqual(str(s1), "[Square] (31) 0/0 - 5")
         s1.update(10)
         self.assertEqual(str(s1), "[Square] (10) 0/0 - 5")
         s1.update(1, 2)
@@ -118,7 +118,7 @@ class testBase(unittest.TestCase):
         test to_dictionnary
         """
         s3 = Square(10, 2, 1)
-        self.assertEqual(str(s3), "[Square] (25) 2/1 - 10")
+        self.assertEqual(str(s3), "[Square] (30) 2/1 - 10")
         self.assertEqual(type(s3.to_dictionary()), dict)
 
     def test_more_or_less_args(self):
@@ -142,7 +142,7 @@ class testBase(unittest.TestCase):
         rr4 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
         self.assertEqual(str(rr4),"[Square] (89) 2/3 - 1")
 
-     def test_save_empty(self):
+    def test_save_empty(self):
         """
         test with empty
         """
