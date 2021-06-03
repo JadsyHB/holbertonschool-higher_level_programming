@@ -87,14 +87,14 @@ class testBase(unittest.TestCase):
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
         r2 = Rectangle(5, 5, 1)
-        self.assertEqual(str(r2), "[Rectangle] (6) 1/0 - 5/5")
+        self.assertEqual(str(r2), "[Rectangle] (11) 1/0 - 5/5")
 
     def test_update_args(self):
         """
         testing update
         """
         r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(str(r1), "[Rectangle] (7) 10/10 - 10/10")
+        self.assertEqual(str(r1), "[Rectangle] (12) 10/10 - 10/10")
         r1.update(89)
         self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
         r1.update(89, 2)
@@ -111,11 +111,11 @@ class testBase(unittest.TestCase):
         testing update kwargs
         """
         r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(str(r1), "[Rectangle] (8) 10/10 - 10/10")
+        self.assertEqual(str(r1), "[Rectangle] (13) 10/10 - 10/10")
         r1.update(height=1)
-        self.assertEqual(str(r1), "[Rectangle] (8) 10/10 - 10/1")
+        self.assertEqual(str(r1), "[Rectangle] (13) 10/10 - 10/1")
         r1.update(width=1, x=2)
-        self.assertEqual(str(r1), "[Rectangle] (8) 2/10 - 1/1")
+        self.assertEqual(str(r1), "[Rectangle] (13) 2/10 - 1/1")
         r1.update(y=1, width=2, x=3, id=89)
         self.assertEqual(str(r1), "[Rectangle] (89) 3/1 - 2/1")
         r1.update(x=1, height=2, y=3, width=4)
@@ -137,3 +137,18 @@ class testBase(unittest.TestCase):
             Rectangle(1, 1, 1, 1, 1, 1, 1)
             Rectangle()
             Rectangle(1)
+
+    def test_create(self):
+        """
+        testing create
+        """
+        rr1 = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(str(rr1),"[Rectangle] (89) 0/0 - 1/1")
+        rr2 = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(str(rr2),"[Rectangle] (89) 0/0 - 1/1")
+        rr3 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(str(rr3),"[Rectangle] (89) 0/0 - 1/2")
+        rr4 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(str(rr4),"[Rectangle] (89) 3/0 - 1/2")
+        rr5 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        self.assertEqual(str(rr5),"[Rectangle] (89) 3/4 - 1/2")
