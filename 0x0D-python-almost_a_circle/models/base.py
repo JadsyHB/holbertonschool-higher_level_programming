@@ -79,7 +79,7 @@ class Base:
         try:
             with open(filename, "r") as f:
                 content = cls.from_json_string(f.read())
-            for elem in content:
+            for i, j in enumerate(content):
                 lista.append(cls.create(**content[i]))
         except:
             pass
