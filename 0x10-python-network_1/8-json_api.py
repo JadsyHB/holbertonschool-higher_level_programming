@@ -16,10 +16,11 @@ if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
     values = {"q": letter}
     r = requests.post(url, data=values)
+
     try:
         req = r.json()
         if req:
-            print("[{}] {}".format(req["id"], req["name"]))
+            print("[{}] {}".format(req.get("id"), req.get("name")))
         else:
             print("No result")
     except ValueError as e:
