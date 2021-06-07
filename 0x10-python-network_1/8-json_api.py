@@ -18,7 +18,7 @@ if __name__ == "__main__":
     r = requests.post(url, data=values)
     try:
         req = r.json()
-        if req and "id" in req and "name" in req:
+        if req:
             print("[{}] {}".format(req["id"], req["name"]))
         else:
             print("No result")
