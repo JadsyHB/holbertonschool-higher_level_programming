@@ -10,11 +10,11 @@ import requests
 
 if __name__ == "__main__":
     if len(argv) < 2:
-        value = ""
+        l = ""
     else:
-        value = argv[1]
+        l = argv[1]
     url = "http://0.0.0.0:5000/search_user"
-    values = {"q": letter}
+    values = {"q": l}
     r = requests.post(url, data=values)
 
     try:
