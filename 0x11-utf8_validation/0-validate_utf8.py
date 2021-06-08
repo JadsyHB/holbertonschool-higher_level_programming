@@ -8,8 +8,6 @@ def validUTF8(data):
     """
     returns boolean
     """
-    if len(data) == 0:
-        return False
     bytes = 0
     for num in data:
         if num < 128:
