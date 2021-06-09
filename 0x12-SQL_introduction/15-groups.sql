@@ -1,3 +1,3 @@
 -- Module 15: list records with same score
 
-SELECT score FROM second_table COUNT(*) as number GROUP BY score DESC;
+SELECT score FROM second_table COUNT(score) as 'number' GROUP BY score ORDER BY number DESC;
