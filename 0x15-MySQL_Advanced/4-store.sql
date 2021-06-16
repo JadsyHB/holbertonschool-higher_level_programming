@@ -1,9 +1,7 @@
 -- Module 4: Trigger
 
 CREATE TRIGGER `MyTrigger` 
-    AFTER INSERT INTO orders
+    AFTER INSERT on orders
     FOR EACH ROW
-    BEGIN
-      UPDATE ITEMS
-           SET quantity = quantity-1
-    END;
+    UPDATE items SET quantity = quantity-NEW.number
+    WHERE name = NEW.item_name;
