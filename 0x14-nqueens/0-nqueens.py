@@ -33,27 +33,29 @@ def validator(grid):
             colSum += grid[j][i]
         if sum(grid[i]) > 1 or colSum > 1:
             return False
-    for i in range(len(grid)):
-        for j in range(len(grid)):
-            if grid[i][j] == 1:
-                checker = checkDiag(grid, (i, j))
-    return checker
+    for k in range(len(grid)):
+        if not (checkDiag(grid, 0, k) and checkDiag(grid, k, 0)):
+            return False
+    for j in range(len(grid)):
+        good = checkDiag(grid, len(grid) - 1, j, False)
+        good = (good and checkDiag(grid, len(grid) - 1 - j, 0, False))
+        if not good:
+            return False
+    return True
 
 
-def checkDiag(grid, point):
-    lista = [
-        (point[0]-1, point[1]-1),
-        (point[0]-1, point[1]+1),
-        (point[0]+1, point[1]-1),
-        (point[0]+1, point[1]+1)
-        ]
-    corrPos = []
-    l = len(grid)
-    for tup in lista:
-        if not (tup[0] < 0 or tup[1] < 0 or tup[0] >= l or tup[1] >= l):
-            corrPos.append(tup)
-    for tup in corrPos:
-        if grid[tup[0]][tup[1]] == 1:
+def checkDiag(grid, x, y, direction=True):
+    size = len(grid)
+    sum = 0
+    while (x >= 0 and x < size and y >= 0 and y < size):
+        sum = sum + grid[x][y]
+        if direction:
+            x = x + 1
+            y = y + 1
+        else:
+            x = x - 1
+            y = y + 1
+        if sum > 1:
             return False
     return True
 
