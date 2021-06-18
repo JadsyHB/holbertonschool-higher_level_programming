@@ -37,7 +37,7 @@ def count_words(subreddit, word_list, nextPage=None, dic={}):
             count_words(subreddit, word_list, nextPage, dic)
         else:
             sA = sorted(dic.items(), key=lambda x: x[0])
-            s = sorted(sA.items(), key=lambda x: x[1], reverse=True)
+            s = sorted(sA, key=lambda x: (-x[1], x[0]))
             for i in s:
                 print("{}: {}".format(i[0], i[1]))
     else:
