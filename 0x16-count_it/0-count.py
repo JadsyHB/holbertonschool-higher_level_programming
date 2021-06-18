@@ -36,12 +36,8 @@ def count_words(subreddit, word_list, nextPage=None, dic={}):
         if nextPage:
             count_words(subreddit, word_list, nextPage, dic)
         else:
-            s = {
-                k: v for k, v in sorted(
-                    dic.items(), key=lambda item: item[1], reverse=True
-                    )
-                }
-            for key, value in s.items():
-                print("{}: {}".format(key, value))
+            s = sorted(dic.items(), key=lambda x: x[1], reverse=True)
+            for i in s:
+                print("{}: {}".format(i[0], i[1]))
     else:
         return
