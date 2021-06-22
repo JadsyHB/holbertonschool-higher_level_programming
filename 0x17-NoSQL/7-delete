@@ -1,0 +1,4 @@
+// Module 7
+db.school.delete(
+	{ "name": "Holberton school" }
+)
