@@ -1,4 +1,4 @@
 // Module 7
-db.school.delete(
+db.school.deleteMany(
 	{ "name": "Holberton school" }
 )
