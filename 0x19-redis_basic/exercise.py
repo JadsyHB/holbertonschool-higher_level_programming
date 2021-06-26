@@ -4,6 +4,7 @@ redis module
 """
 
 
+from typing import Union, Callable, Optional, Any
 import redis
 from uuid import uuid4
 
@@ -37,3 +38,14 @@ class Cache:
         if fn:
             return fn(data)
         return data
+cache = Cache()
+
+TEST_CASES = {
+    b"foo": None,
+    123: int,
+    "bar": lambda d: d.decode("utf-8")
+}
+
+for value, fn in TEST_CASES.items():
+    key = cache.store(value)
+    assert cache.get(key, fn=fn) == value
