@@ -1,25 +1,39 @@
 #!/usr/bin/env python3
-""" Writing strings to Redis, Reading from Redis and recovering original type,
-    Incrementing values, Storing lists, Retrieving lists """
-from typing import Union, Callable, Optional, Any
+"""
+redis module
+"""
+
+
 import redis
-import uuid
-from functools import wraps
+from uuid import uuid4
 
 
 class Cache:
-    """ class """
+    """
+    Cache class
+    modules: init
+    """
     def __init__(self):
-        """ constructor - store an instance of the Redis client as a private
-        variable named _redis and flush the instance using flushdb """
+        """
+        initialization
+        """
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    @call_history
-    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
-        """ generate a random key (e.g. using uuid), store the input data in
-        Redis using the random key and return the key """
-        key = str(uuid.uuid4())
+        """
+        store function
+        """
+        key = str(uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str,
+            fn: Optional[Callable] = None) -> Union[str, int, bytes, float]:
+        """
+        get function
+        """
+        data = self._redis.get(key)
+        if fn:
+            return fn(data)
+        return data
