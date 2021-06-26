@@ -5,7 +5,7 @@ redis module
 
 
 import redis
-import uuid
+from uuid import uuid4
 
 
 class Cache:
@@ -20,10 +20,11 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         store function
         """
-        key = str(uuid.uuid4())
+        key = str(uuid4())
         self._redis.set(key, data)
         return key
