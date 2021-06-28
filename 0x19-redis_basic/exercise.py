@@ -7,6 +7,7 @@ redis module
 from typing import Union, Callable, Optional, Any
 import redis
 from uuid import uuid4
+from functools import wraps
 
 
 def count_calls(method: Callable) -> Callable:
@@ -53,3 +54,17 @@ class Cache:
         if fn:
             return fn(data)
         return data
+
+    def get_int(self, key: str) -> int:
+        """change to int"""
+        data = self._redis.get(key)
+        try:
+            data(value.decode("utf-8"))
+        except Exception:
+            data = 0
+        return data
+
+    def get_str(self, key: str) -> str:
+        """change to str"""
+        data = self._redis.get(key)
+        return data.decode("utf-8")
