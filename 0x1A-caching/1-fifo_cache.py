@@ -2,7 +2,6 @@
 """
 fifocache
 """
-
 from base_caching import BaseCaching
 
 
@@ -15,20 +14,6 @@ class FIFOCache(BaseCaching):
         super().__init__()
         self.data = {}
         self.next_in, self.next_out = 0, 0
-
-    def put(self, key, item):
-        """put"""
-        if key and item:
-            if key in self.cache_data:
-                self.cache_data[key] = item
-            else:
-                self._push(key, item)
-
-    def get(self, key):
-        """get"""
-        if key and self.cache_data.get(key):
-            return self.cache_data[key]
-        return None
 
     def _push(self, key, item):
         """FIFO Push"""
@@ -44,3 +29,17 @@ class FIFOCache(BaseCaching):
         self.next_out += 1
         key = self.data[self.next_out]
         del self.data[self.next_out], self.cache_data[key]
+
+    def put(self, key, item):
+        """put"""
+        if key and item:
+            if key in self.cache_data:
+                self.cache_data[key] = item
+            else:
+                self._push(key, item)
+
+    def get(self, key):
+        """get"""
+        if key and self.cache_data.get(key):
+            return self.cache_data[key]
+        return None
