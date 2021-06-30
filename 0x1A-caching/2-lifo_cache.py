@@ -10,7 +10,7 @@ class LIFOCache(BaseCaching):
         self.last = ''
 
     def put(self, key, item):
-        """put"""
+        """put function for adding"""
         if key and item:
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
